@@ -75,22 +75,24 @@ a { color: inherit; text-decoration: none; }
   align-items: center;
   overflow: hidden;
   color: var(--white);
-  background:
-    radial-gradient(circle at 83% 33%, rgba(99,189,235,.2), transparent 22%),
-    linear-gradient(112deg, #061629 0%, #0a2b49 54%, #245b78 100%);
+  background-color: #071a2e;
+  background-position: center;
+  background-size: cover;
 }
 .hero-carousel { position: relative; overflow: hidden; }
 .hero-track { display: flex; transition: transform .65s cubic-bezier(.65,0,.35,1); }
 .hero-slide { position: relative; min-width: 100%; }
-.hero-slide:nth-child(2) .hero {
+.hero-slide:nth-child(1) .hero { background-image: url("https://upload.wikimedia.org/wikipedia/commons/d/d0/HKIA_at_night.jpg"); }
+.hero-slide:nth-child(2) .hero { background-image: url("https://upload.wikimedia.org/wikipedia/commons/8/80/ISMALA.jpg"); background-position: center 48%; }
+.hero-slide:nth-child(3) .hero { background-image: url("https://upload.wikimedia.org/wikipedia/commons/d/de/Airbus_A380.jpg"); background-position: center 42%; }
+.hero-slide .hero::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
   background:
-    radial-gradient(circle at 79% 43%, rgba(153,217,242,.24), transparent 24%),
-    linear-gradient(112deg, #061629 0%, #12354e 55%, #496d7d 100%);
-}
-.hero-slide:nth-child(3) .hero {
-  background:
-    radial-gradient(circle at 82% 32%, rgba(229,167,44,.18), transparent 22%),
-    linear-gradient(112deg, #071827 0%, #153a51 56%, #735c38 130%);
+    linear-gradient(90deg, rgba(3,15,28,.96) 0%, rgba(4,22,39,.89) 35%, rgba(5,24,41,.48) 63%, rgba(5,19,32,.18) 100%),
+    linear-gradient(0deg, rgba(2,12,22,.62), transparent 45%);
 }
 .carousel-arrow {
   position: absolute;
@@ -134,7 +136,7 @@ a { color: inherit; text-decoration: none; }
     linear-gradient(165deg, transparent 47%, rgba(255,255,255,.16) 48%, transparent 49%) 0 0 / 100% 100%,
     linear-gradient(90deg, rgba(1,11,22,.9), rgba(17,49,71,.65));
 }
-.hero-grid { position: relative; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; padding-top: 78px; }
+.hero-grid { position: relative; z-index: 3; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; padding-top: 78px; }
 .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: #9fd7f3; font-size: 13px; letter-spacing: .18em; text-transform: uppercase; }
 .eyebrow::before { content: ""; width: 32px; height: 2px; background: var(--gold); }
 .hero h1 { max-width: 700px; margin: 20px 0 24px; font-size: clamp(45px, 5.4vw, 76px); line-height: 1.08; letter-spacing: -.035em; }
@@ -147,7 +149,7 @@ a { color: inherit; text-decoration: none; }
 .btn-secondary { border: 1px solid rgba(255,255,255,.36); color: var(--white); }
 .btn-secondary:hover { background: rgba(255,255,255,.08); }
 
-.plane-scene { position: relative; height: 430px; }
+.plane-scene { position: relative; height: 430px; opacity: 0; pointer-events: none; }
 .sun { position: absolute; right: 8%; top: 6%; width: 190px; height: 190px; border-radius: 50%; background: radial-gradient(circle, rgba(255,213,138,.45), rgba(255,195,90,.06) 60%, transparent 70%); }
 .plane {
   position: absolute;
@@ -200,7 +202,7 @@ a { color: inherit; text-decoration: none; }
   background: radial-gradient(circle, #182c3a 0 26%, #617a89 28% 42%, #d5e1e6 45%);
 }
 .runway-line { position: absolute; right: -20%; bottom: 48px; width: 125%; height: 2px; background: rgba(255,255,255,.5); transform: rotate(-8deg); }
-.stat-strip { position: absolute; inset: auto 0 0; background: rgba(4,17,31,.75); border-top: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(8px); }
+.stat-strip { position: absolute; z-index: 4; inset: auto 0 0; background: rgba(4,17,31,.78); border-top: 1px solid rgba(255,255,255,.1); backdrop-filter: blur(8px); }
 .stats { min-height: 105px; display: grid; grid-template-columns: repeat(3, 1fr); align-items: center; }
 .stat { padding-left: 30px; border-left: 1px solid rgba(255,255,255,.14); }
 .stat:first-child { padding-left: 0; border: 0; }
@@ -245,6 +247,8 @@ a { color: inherit; text-decoration: none; }
 
 .footer { padding: 30px 0; color: #8ea5b6; background: #04111e; font-size: 12px; }
 .footer-row { display: flex; justify-content: space-between; gap: 20px; }
+.image-credits { margin-top: 10px; color: #60798c; font-size: 10px; }
+.image-credits a { text-decoration: underline; }
 
 .tabs-section { padding: 92px 0 105px; background: var(--paper); }
 .tabs-intro { margin-bottom: 34px; text-align: center; }
@@ -378,6 +382,7 @@ a { color: inherit; text-decoration: none; }
   .nav { height: 68px; }
   .hero { min-height: 850px; }
   .hero h1 { font-size: 43px; }
+  .hero-slide .hero::after { background: linear-gradient(90deg, rgba(3,15,28,.94), rgba(3,15,28,.68)); }
   .plane { right: -110px; transform: scale(.63) rotate(-4deg); }
   .carousel-arrow { display: none; }
   .carousel-dots { bottom: 112px; }
