@@ -67,6 +67,80 @@ a { color: inherit; text-decoration: none; }
   font-size: 13px;
 }
 .language:hover { background: rgba(255,255,255,.1); }
+.portal-login {
+  padding: 8px 16px;
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  color: #172437;
+  background: var(--gold);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.portal-login:hover { background: #f0b642; }
+
+.portal-modal {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: rgba(2, 13, 25, .76);
+  backdrop-filter: blur(9px);
+}
+.portal-modal[hidden] { display: none; }
+.portal-dialog {
+  position: relative;
+  width: min(440px, 100%);
+  padding: 38px;
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 30px 90px rgba(0,0,0,.36);
+}
+.portal-dialog h2 { margin: 8px 0 10px; font-size: 29px; line-height: 1.25; }
+.portal-dialog p { margin: 0 0 23px; color: var(--muted); font-size: 14px; }
+.portal-dialog small { display: block; margin-top: 17px; color: #7a8797; }
+.portal-badge {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-bottom: 18px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--navy-2);
+  font-weight: 900;
+  letter-spacing: .08em;
+}
+.portal-close {
+  position: absolute;
+  top: 15px;
+  right: 17px;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  color: #526174;
+  background: #eef3f7;
+  font-size: 22px;
+  cursor: pointer;
+}
+.portal-form { display: grid; gap: 15px; }
+.portal-form label { display: grid; gap: 6px; color: #34465a; font-size: 13px; font-weight: 700; }
+.portal-form input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid #ccd7e1;
+  border-radius: 6px;
+  outline: none;
+  font: inherit;
+}
+.portal-form input:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(25,118,210,.12); }
+.portal-form .btn { width: 100%; border: 0; cursor: pointer; }
 
 .hero {
   position: relative;
