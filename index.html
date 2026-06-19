@@ -14,9 +14,25 @@
       <button class="btn btn-primary" id="construction-close" type="button">我知道了</button>
     </div>
   </div>
+  <div class="portal-modal" id="portal-modal" hidden role="dialog" aria-modal="true" aria-labelledby="portal-title">
+    <div class="portal-dialog">
+      <button class="portal-close" id="portal-close" type="button" aria-label="关闭">×</button>
+      <div class="portal-badge">HB</div>
+      <div class="kicker">STAFF PORTAL</div>
+      <h2 id="portal-title">登录航贸业务系统</h2>
+      <p>此入口仅供公司员工使用。登录成功后将自动进入业务工作台。</p>
+      <form class="portal-form" method="post" action="https://portal.hongbiaoaviation.com/login">
+        <label><span>用户名</span><input name="username" autocomplete="username" required></label>
+        <label><span>密码</span><input type="password" name="password" autocomplete="current-password" required></label>
+        <button class="btn btn-primary" type="submit">安全登录</button>
+      </form>
+      <small>账号或密码有问题，请联系系统管理员。</small>
+    </div>
+  </div>
   <header class="site-header"><div class="container nav">
     <a class="brand" href="#top"><span class="brand-mark"></span><span><strong>鸿标航空科技</strong><small>HONGBIAO AVIATION</small></span></a>
     <nav class="nav-links"><a href="#information">企业信息</a><a href="#contact">联系方式</a></nav>
+    <button class="portal-login" id="portal-open" type="button">登录</button>
     <a class="language" href="en.html">EN · English</a>
   </div></header>
 
@@ -77,6 +93,20 @@
     const constructionModal = document.getElementById('construction-modal');
     document.getElementById('construction-close').addEventListener('click', () => {
       constructionModal.hidden = true;
+    });
+    const portalModal = document.getElementById('portal-modal');
+    const portalOpen = document.getElementById('portal-open');
+    const portalClose = document.getElementById('portal-close');
+    portalOpen.addEventListener('click', () => {
+      portalModal.hidden = false;
+      portalModal.querySelector('input').focus();
+    });
+    portalClose.addEventListener('click', () => { portalModal.hidden = true; });
+    portalModal.addEventListener('click', event => {
+      if (event.target === portalModal) portalModal.hidden = true;
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && !portalModal.hidden) portalModal.hidden = true;
     });
     document.querySelectorAll('.tab-button').forEach(button => button.addEventListener('click', () => {
       document.querySelectorAll('.tab-button, .tab-panel').forEach(item => item.classList.remove('active'));
